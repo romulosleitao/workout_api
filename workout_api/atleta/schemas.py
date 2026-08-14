@@ -20,7 +20,10 @@ class Atleta(BaseSchema):
 class AtletaIn(Atleta):
     pass
 
-
+class AtletaResponse(BaseSchema):
+    nome: Annotated[str, Field(description='Nome do atleta', example='Joao', max_length=50)]
+    centro_treinamento: Annotated[CentroTreinamentoAtleta, Field(description='Centro de treinamento do atleta')]
+    categoria: Annotated[CategoriaIn, Field(description='Categoria do atleta')]
 class AtletaOut(Atleta, OutMixin):
     pass
 
